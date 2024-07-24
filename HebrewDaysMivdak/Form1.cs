@@ -80,7 +80,7 @@ namespace HebrewDaysMivdak
             int nextMonthIndex = (comboBox_month.SelectedIndex + 1) % monthes.Length;
             string nextMonth;
 
-            if (nextMonthIndex == 6 || nextMonthIndex == 7)
+            if (nextMonthIndex == 6)
                 nextMonth = comboBox_month.Items[8].ToString();
             else nextMonth = comboBox_month.Items[nextMonthIndex].ToString();
 
