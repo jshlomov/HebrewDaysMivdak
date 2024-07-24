@@ -12,7 +12,7 @@ namespace HebrewDaysMivdak
         public Form1()
         {
             InitializeComponent();
-            xmlService = new XmlService("data.xml");
+            xmlService = new XmlService("data.xml"); // xml in the bin file
             dateFactory = new DateFactory();
             daysdic = dateFactory.CreateDaysDictionary();
             daysInMonthDic = dateFactory.CreateDaysInMonthDictionary();
@@ -63,6 +63,8 @@ namespace HebrewDaysMivdak
         private string CreateHebrewDate()
         {
             //Pull the right values from the dictionary
+            // all the keys needed to the xml object
+
             string dayKey = comboBox_day.SelectedItem.ToString();
             string day = daysdic[dayKey];
 
@@ -78,8 +80,8 @@ namespace HebrewDaysMivdak
             int nextMonthIndex = (comboBox_month.SelectedIndex + 1) % monthes.Length;
             string nextMonth;
 
-            if (nextMonthIndex == 5 || nextMonthIndex == 6 || nextMonthIndex == 7)
-                nextMonth = comboBox_month.Items.IndexOf(nextMonthIndex).ToString();
+            if (nextMonthIndex == 6 || nextMonthIndex == 7)
+                nextMonth = comboBox_month.Items[8].ToString();
             else nextMonth = comboBox_month.Items[nextMonthIndex].ToString();
 
             //There is a difference between day 30 and the others
