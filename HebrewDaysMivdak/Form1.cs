@@ -63,7 +63,8 @@ namespace HebrewDaysMivdak
         private string CreateHebrewDate()
         {
             //Pull the right values from the dictionary
-            string day = daysdic[comboBox_day.SelectedItem.ToString()];
+            string dayKey = comboBox_day.SelectedItem.ToString();
+            string day = daysdic[dayKey];
 
             int dayInMonthKey = int.Parse(comboBox_dInMonth.SelectedItem.ToString()); //needed to check if it is 30
             string dayInMonth = daysInMonthDic[dayInMonthKey];
@@ -85,10 +86,10 @@ namespace HebrewDaysMivdak
             string monthStringVal = dayInMonthKey == 30 ? $"לחודש {month} שהוא ראש חודש {nextMonth}" : $"לירח {month}";
 
 
-            string result = @$"ב{day} {dayInMonth} {monthStringVal} שנת חמשת אלפים ושבע מאות ו{year} לבריאת העולם";
+            string result = @$"ב{day} בשבת {dayInMonth} {monthStringVal} שנת חמשת אלפים ושבע מאות ו{year} לבריאת העולם";
 
             xmlService.CreateQuery(new HebrewDateModel(
-                day,
+                dayKey,
                 dayInMonthKey,
                 month,
                 yearKey,
